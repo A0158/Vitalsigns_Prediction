@@ -1,4 +1,4 @@
-# Vitalsigns Prediction for Diagnostic Application
+# Vital signs Prediction using computer vision for Diagnostic Application
 
 This repository uses  signal processing and computer vision (face detection,deep learning) technique to predict vital signs from photoplethysmography method. 
 
