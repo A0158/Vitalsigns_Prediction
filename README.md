@@ -75,7 +75,7 @@ If you want to understand about dockers  check [Docker manual](https://docs.dock
 ## Run the model in app using this command:
 
 ```
-python run flaskapp.py
+python run app.py
 ```
 
 
