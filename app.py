@@ -4,7 +4,9 @@ import pandas as pd
 import pickle
 import flasgger
 from flasgger import Swagger
-
+import opencv as cv2
+from inference_preprocess import preprocess_raw_video, detrend
+from predict_video import predict_vitals
 app = Flask(__name__)
 Swagger(app)
 pickle_in = open('classifier.pkl','rb')
@@ -17,31 +19,15 @@ def welcome():
 
 ##
 @app.route('/predict')
-def predict_price():
+def predict_vitals():
         
-    datas = request.args.get("datas")
-    prediction = classifier.predict([[datas]*200])
-    return "The prediction is "+str(prediction)
+   return
 
 @app.route('/predicting_files',methods=["POST"])
-def predict_pricedes():
-    
-    """Let's Authenticate the Banks Note 
-    This is using docstrings for specifications.
-    ---
-    parameters:
-      - name: file
-        in: formData
-        type: file
-        required: true
-      
-    responses:
-        200:
-            description: The output values
-         
-    """
-    df = pd.read_csv(request.files.get("file"))
-    prediction = classifier.predict(df)
+def predict_vitals():
+
+    df = preprocess_raw_video(request.files.get("file"))
+    prediction = predict_vitals(df)
     return "The prediction is "+str(list(prediction))
     
     
