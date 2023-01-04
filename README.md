@@ -11,10 +11,10 @@ The blood vessels in face when exposed to light shows a pattern of blood volume 
 This repository is an approach to calculate different vital signs predicted from blood volume change pattern.
 
 The vital signs predicted in this repository includes:
-1)HeartBeat
-2)Respiratory Rate
-3)SpO2 level
-4)Blood Pressure
+1) HeartBeat
+2) Respiratory Rate
+3) SpO2 level
+4) Blood Pressure
 
 The vital signs can be used for diagnosis applications.
 ![overview-heart-rate-and-hrv](https://user-images.githubusercontent.com/65164450/210617201-b3a6574b-1c3f-4db6-9bcd-2aa68f47d417.jpg)
@@ -43,12 +43,12 @@ python train.py --exp_name test --data_dir [DATASET_PATH]
 ## Running Inference to calculate BP, Heart Rate and Respiratory Rate
 
 So we have two methods for running inference:
-### 1)Realtime
+### 1) Realtime
 ```
 python realtime/predict_realtime.py 
 ```
 It will ask for camera permission. Please allow it to proceed
-### 2)Uploading Videos
+### 2) Uploading Videos
 ```
 python realtime/upload_video.py --video_path [VIDEO_PATH]
 
@@ -61,6 +61,22 @@ python oxygensaturation.py
 ```
 
 
+## Steps to dockerize the container
+```
+docker build -t name:tag .
+```
+
+## Run the docker
+```
+docker run -p 127.0.0.1:80:8080/tcp ubuntu bash
+```
+If you want to understand about dockers  check [Docker manual](https://docs.docker.com/desktop/)
+
+## Run the model in app using this command:
+
+```
+python run flaskapp.py
+```
 
 
 
